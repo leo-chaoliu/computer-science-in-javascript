@@ -1,4 +1,6 @@
 function HashTable(size) {
+  // JavaScript is designed on a simple object-based paradigm.
+  // Object is made of unique properties, which seems a map/hashTable
   this.values = {};
   this.numberOfValues = 0;
   this.size = size;
@@ -6,12 +8,15 @@ function HashTable(size) {
 
 HashTable.prototype.add = function(key, value) {
   var hash = this.calculateHash(key);
+  // O(1) search property
+  // hash : {}
   if(!this.values.hasOwnProperty(hash)) {
     this.values[hash] = {};
   }
   if(!this.values[hash].hasOwnProperty(key)) {
     this.numberOfValues++;
   }
+  // hash : {key: value};
   this.values[hash][key] = value;
 };
 HashTable.prototype.remove = function(key) {
@@ -29,6 +34,10 @@ HashTable.prototype.search = function(key) {
   if(this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(key)) {
     return this.values[hash][key];
   } else {
+    // It is one of JavaScript's primitive values.
+    // Intenionally assign a variable points to no object
+    // VS undefined, is default, not intenional indicated
+    // null / undefined is false in boolean operation
     return null;
   }
 };
@@ -37,6 +46,7 @@ HashTable.prototype.length = function() {
 };
 HashTable.prototype.print = function() {
   var string = '';
+  // Use for ... in ... to traverse to get the key
   for(var value in this.values) {
     for(var key in this.values[value]) {
       string += this.values[value][key] + ' ';
