@@ -1,14 +1,19 @@
 function Queue() {
+  // constructor is a function 
   this.queue = [];
 }
 
+// js is prototype based inheritence
 Queue.prototype.enqueue = function(value) {
   this.queue.push(value);
 };
 Queue.prototype.dequeue = function() {
+  // dequeue
+  // arr.shift(), the arr will also be affected
   return this.queue.shift();
 };
 Queue.prototype.peek = function() {
+  // just a glance of the first value
   return this.queue[0];
 };
 Queue.prototype.length = function() {
@@ -18,6 +23,7 @@ Queue.prototype.print = function() {
   console.log(this.queue.join(' '));
 };
 
+// use new to init an instance of a fun, make this meaningful to a function
 var queue = new Queue();
 queue.enqueue(1);
 queue.enqueue(2);
