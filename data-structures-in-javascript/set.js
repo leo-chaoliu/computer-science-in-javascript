@@ -4,14 +4,20 @@ function Set() {
 }
 
 Set.prototype.add = function(value) {
+  // if(this.values.indexOf(value)===-1)　
+  // if(!~this.values.indexOf(value))
   if(!~this.values.indexOf(value)) {
     this.values.push(value);
     this.numberOfValues++;
   }
 };
 Set.prototype.remove = function(value) {
+  // nothing repeated in a set
   var index = this.values.indexOf(value);
+  // if is not -1
   if(~index) {
+    // splice(index, 1)
+    // delete one element in index postion
     this.values.splice(index, 1);
     this.numberOfValues--;
   }
@@ -88,3 +94,72 @@ console.log('set1 subset of set is true:', set.isSubset(set1)); // => true
 console.log('set2 subset of set is false:', set.isSubset(set2)); // => false
 console.log('set1 length gives 2:', set1.length()); // => 2
 console.log('set3 length gives 3:', set3.length()); // => 3
+
+// My Practice
+'use strict';
+
+function MySet(){
+	 this.value = [];
+   this.length = 0;
+}
+
+MySet.prototype.add = function(val){
+	if(this.value.indexOf(val) === -1){
+  	this.value.push(val);
+    this.length ++;
+  }
+}
+
+MySet.prototype.union = function(set){
+	var temp = new MySet();
+  for(var i of this.value){
+  	temp.add(i);
+  }
+  for(var i of set.value){
+    temp.add(i);
+  }
+  
+  return temp;
+}
+
+MySet.prototype.length = function(set){
+	return set.values.length;
+}
+
+MySet.prototype.print = function(){
+	return console.log(`${this.value.join(' ')}, length: ${this.length}, instance name: ${getClassName.bind(this)}`);
+}
+
+MySet.prototype.name = function(){
+	return this.name;
+}
+
+/* const getClassName = function(){
+  console.log(this);
+  for(var name in window){
+    if(window[name] === this){
+      console.log(this);
+      return name;
+    }
+  }
+} */
+
+var set = new MySet();
+set.add('1');
+set.add(1);
+set.add('10');
+set.add(1);
+console.log(set.length);
+
+var set2 = new MySet();
+set2.add('a');
+set2.add(1);
+
+console.log(set2.length);
+var set3 = set.union(set2);
+/* set3.print(); */
+console.log(set3.value);
+/* set3.name(); */
+console.log(set3.name());
+
+
