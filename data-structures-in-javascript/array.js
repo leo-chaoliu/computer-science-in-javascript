@@ -1,4 +1,5 @@
 function MyArray() {
+  // array in JS is like arraylist in java, it auto expand, if empty is undefined   
   this.array = [];
 }
 
@@ -15,7 +16,7 @@ MyArray.prototype.search = function(data) {
   if(~foundIndex) {
     return foundIndex;
   }
-
+  // is equal to not return 
   return null;
 };
 MyArray.prototype.getAtIndex = function(index) {
@@ -44,3 +45,24 @@ array.add(5);
 array.print(); // => 1 2 4 5 5
 array.remove(5);
 array.print(); // => 1 2 4
+
+// my practice
+var fReturn1 = function(parm){
+    if(parm === 1){
+        return 'return a value';
+    }
+    return null;
+}
+
+var fNoReturn1 = function(parm){
+    if(parm === 1){
+        return 'return a value';
+    }
+}
+
+// return null
+console.log(fReturn1(2)); // null
+
+// by default it return undefined
+console.log(fNoReturn1(2)); // undefined 
+
