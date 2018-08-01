@@ -8,6 +8,8 @@ Stack.prototype.push = function(value) {
 Stack.prototype.pop = function() {
   return this.stack.pop();
 };
+// Queue is queue[0], FIFO
+// Stack is stack[end], LIFO
 Stack.prototype.peek = function() {
   return this.stack[this.stack.length - 1];
 };
