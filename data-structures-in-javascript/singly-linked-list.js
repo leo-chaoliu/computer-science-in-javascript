@@ -58,13 +58,26 @@ SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
 };
 SinglyLinkedList.prototype.traverse = function(fn) {
   var current = this.head;
+  // use current node to check 
   while(current) {
     if(fn) {
       fn(current);
     }
+    // at the end, it will get null from the tail, which will end the loop
     current = current.next;
   }
 };
+// SinglyLinkedList.prototype.traverse = function(){
+//     var cursor = this.head;
+//     // checkin the next data, the tail will break, since tail.next = null
+//     // use next node to check
+//     while(cursor.next){
+//         console.log(cursor.data);
+//         cursor = cursor.next;
+//     }
+//     // still need to handle the tail
+//     console.log(this.tail.data);
+// }
 SinglyLinkedList.prototype.length = function() {
   return this.numberOfValues;
 };
