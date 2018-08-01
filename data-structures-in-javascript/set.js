@@ -35,8 +35,12 @@ Set.prototype.union = function(set) {
   });
   return newSet;
 };
+// The same part
+// O(n)
 Set.prototype.intersect = function(set) {
   var newSet = new Set();
+  // for(var value of set){}
+  // arr.forEach((value)=>{})
   this.values.forEach(function(value) {
     if(set.contains(value)) {
       newSet.add(value);
@@ -53,9 +57,15 @@ Set.prototype.difference = function(set) {
   });
   return newSet;
 };
+// isSubset
 Set.prototype.isSubset = function(set) {
+  // Check is every element in the set.values pass the test
   return set.values.every(function(value) {
+    // arr.every(callback[, thisArg])
+    // return ture, if all the element get truthy result from the callback
+    // others return false
     return this.contains(value);
+    // this is optional, is default
   }, this);
 };
 Set.prototype.length = function() {
