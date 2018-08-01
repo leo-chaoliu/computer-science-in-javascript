@@ -39,20 +39,26 @@ SinglyLinkedList.prototype.remove = function(data) {
     current = current.next;
   }
 };
+
 SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
   var current = this.head;
   while(current) {
     if(current.data === toNodeData) {
       var node = new Node(data);
+      // same as add
       if(current === this.tail) {
         this.tail.next = node;
         this.tail = node;
       } else {
+        // node.next get the ref from current.next
         node.next = current.next;
+        // change previou next point to the node
         current.next = node;
+        // current(current.next=node) -> node -> node.next (node.next=currrent.next)
       }
       this.numberOfValues++;
     }
+    // why still .next when inser finished
     current = current.next;
   }
 };
