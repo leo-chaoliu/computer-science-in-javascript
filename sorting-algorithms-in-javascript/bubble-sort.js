@@ -20,10 +20,15 @@ function bubbleSortBasic(array) {
   return array;
 }
 
+// array.slice() 
+// returns a shallow copy of a portion of an array into a new array object 
+// The original array will not be modified.
 console.log(bubbleSortBasic(array.slice())); // => [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
 
 // correct implementation: this is the usual implementation of the bubble sort algorithm. Some loops execution are avoided if not they are not needed
+// https://visualgo.net/en/sorting
 function bubbleSort(array) {
+  // flag in a loop, to control when to stop the while
   var swapped;
   do {
     swapped = false;
