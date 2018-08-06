@@ -50,6 +50,8 @@ SinglyLinkedList.prototype.insertAfter = function(data, toNodeData) {
         this.tail.next = node;
         this.tail = node;
       } else {
+        // consider from right to left
+        // current.next 
         // node.next get the ref from current.next
         node.next = current.next;
         // change previou next point to the node
